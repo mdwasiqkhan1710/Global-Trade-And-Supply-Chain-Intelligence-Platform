@@ -1,0 +1,10 @@
+-- Creating Index on Tables for optimizing database performance
+
+CREATE INDEX idx_comtrade_reporter_year ON fact_comtrade_exports_dataset(reporter_iso3, reference_year);
+CREATE INDEX idx_comtrade_partner_year ON fact_comtrade_exports_dataset(partner_iso3, reference_year);
+CREATE INDEX idx_comtrade_reporter_partner_year ON fact_comtrade_exports_dataset(reporter_iso3, partner_iso3, reference_year);
+CREATE INDEX idx_comtrade_reporter_name ON fact_comtrade_exports_dataset(reporter_name); 
+CREATE INDEX idx_comtrade_partner_name ON fact_comtrade_exports_dataset(partner_name);
+CREATE INDEX idx_comtrade_year ON fact_comtrade_exports_dataset(reference_year);
+CREATE INDEX idx_comtrade_commodity ON fact_comtrade_exports_dataset(commodity_code);
+CREATE INDEX idx_comtrade_classification ON fact_comtrade_exports_dataset(classification_revision_code);
