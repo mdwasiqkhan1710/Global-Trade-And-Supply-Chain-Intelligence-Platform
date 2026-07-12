@@ -77,6 +77,7 @@ SET
         ELSE 0
 	END;
 
+-- Loading the US ComTrade Data
 LOAD DATA INFILE
 	"C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/comtrade_exports_clean_analytics_ready_20260709_020129.csv"
 INTO TABLE 
