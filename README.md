@@ -1,5 +1,9 @@
 # Global Trade & Supply Chain Intelligence Platform
 
+<img width="1983" height="793" alt="Banner_ReadMe_md" src="https://github.com/user-attachments/assets/fb11b01e-2a60-424e-9c0c-636a78de01ec" />
+
+---
+
 ## Project Overview
 
 This project demonstrates an end-to-end Data Analytics solution built using Python, MySQL, Microsoft Excel, and Power BI. The objective was to simulate a real-world analytics workflow by collecting trade and economic data from multiple public APIs, transforming it into analytics-ready datasets, designing a relational data warehouse, and developing interactive dashboards for business reporting.
@@ -86,35 +90,7 @@ International Trade Analytics
 
 # Project Architecture
 
-```text
-                UN Comtrade API
-                       │
-                       │
-               World Bank API
-                       │
-                       ▼
-         Python Data Extraction Scripts
-                       │
-                       ▼
-        Data Cleaning & Transformation
-                       │
-                       ▼
-         Analytics-Ready CSV Datasets
-                       │
-                       ▼
-            MySQL Data Warehouse
-                       │
-                       ▼
-          Master Fact Table Creation
-                       │
-                       ▼
-          Business Analytical Views
-                       │
-          ┌────────────┴────────────┐
-          ▼                         ▼
- Microsoft Excel              Power BI
- Executive Reports      Interactive Dashboards
-```
+<img width="281" height="523" alt="ETL_Architecture_Diagram" src="https://github.com/user-attachments/assets/7f8e3150-e785-4a6d-91ed-97d2069561e5" />
 
 ---
 
@@ -144,27 +120,37 @@ Global-Trade-Supply-Chain-Intelligence-Platform/
 │   ├── raw_data/
 │   └── processed_data/
 │
-├── notebooks/
+├── python/
+|    ├── cleaning_and_transformation/
+|    ├── extraction/
+│    └── notebooks/
 │
 ├── sql/
+|    ├── 01_Database_Schema_Design.sql
+|    ├── 02_Creating_Index.sql
+|    ├── 03_Data_Loading.sql
+|    ├── 04_Data_Validation_Checks.sql
+|    ├── 05_Creating_Master_Fact_Table.sql
+|    ├── 06_Loading_Data_Master_Fact_Table.sql
+|    ├── 07_Create_Analytical_Views.sql
+│    └── 08_Create_Dashboard_Views.sql
 │
 ├── excel/
+|    ├── 01_Executive_Dashboard.xlsx
+│    └── 02_Scenario_Analysis.xlsx
 │
 ├── powerbi/
-│
-├── reports/
+|    ├── Dashboard_Screenshots
+│    └── Global-Trade-And-Supply-Chain-Intelligence.pbix
 │
 ├── docs/
+|    ├── Business_Problem.md/
+|    ├── Data_Model.md/
+│    └── ETL_Process.md/
 │
-├── src/
+├── images/
 │
-├── assets/
-│   ├── images/
-│   ├── excel/
-│   ├── powerbi/
-│   └── sql/
-│
-├── requirements.txt
+├── .gitignore
 ├── README.md
 └── LICENSE
 ```
@@ -473,9 +459,8 @@ The dashboard highlights:
 - Export Growth
 - Year-wise Analysis
 
-> Replace this section with your Excel Executive Dashboard screenshot.
+<img width="1797" height="867" alt="Executive_Dashboard_xlsx_Screenshot" src="https://github.com/user-attachments/assets/f133163c-4242-44a7-8ee1-c8bfdac8fcad" />
 
-![Excel Executive Dashboard](assets/excel/executive_dashboard.png)
 
 ---
 
@@ -503,9 +488,8 @@ The workbook automatically recalculates key performance indicators and visualiza
 
 This demonstrates practical use of Excel for business planning and what-if analysis.
 
-> Replace this section with your Scenario Analysis Dashboard screenshot.
+<img width="1665" height="877" alt="Scenario_Analysis_Dashboard_xlsx_Screenshot" src="https://github.com/user-attachments/assets/65c7f3d6-ca23-4e5f-9694-64f18df159b5" />
 
-![Scenario Analysis Dashboard](assets/excel/scenario_analysis.png)
 
 ---
 
@@ -518,6 +502,8 @@ Instead of importing raw CSV files, the dashboards consume business-ready datase
 This approach improves performance, simplifies report development, and follows a workflow commonly used in industry.
 
 The Power BI report focuses on answering business questions related to international trade, economic performance, and export growth.
+
+<img width="1782" height="798" alt="Power_BI_Model_View_Screenshot" src="https://github.com/user-attachments/assets/430a2afa-6a2d-43c9-bd40-6df4fdc06425" />
 
 ---
 
@@ -558,9 +544,8 @@ Key metrics displayed include:
 - Global Export Rank
 - Export Growth (%)
 
-> Replace this section with your Executive Dashboard screenshot.
+<img width="1282" height="722" alt="01_Executive_Overview_Dashboard" src="https://github.com/user-attachments/assets/9a7efd9d-91e9-4cd6-a172-989c5ef3f4fc" />
 
-![Executive Dashboard](assets/powerbi/executive_dashboard.png)
 
 ---
 
@@ -575,9 +560,8 @@ Business users can identify:
 - Country Rankings
 - Historical Export Performance
 
-> Replace this section with your Trade Dashboard screenshot.
+<img width="1281" height="725" alt="02_Trade_Operations_Dashboard" src="https://github.com/user-attachments/assets/34dca920-48a6-4726-948c-09f5706058b6" />
 
-![Trade Dashboard](assets/powerbi/trade_dashboard.png)
 
 ---
 
@@ -592,9 +576,10 @@ It enables comparison of:
 - Population vs Export Performance
 - Trade (% of GDP)
 
-> Replace this section with your Economic Dashboard screenshot.
+<img width="1282" height="722" alt="04_Economic_Intelligence_Dashboard" src="https://github.com/user-attachments/assets/8da572c2-905d-4c92-9b0e-b726d48ed0b4" />
 
-![Economic Dashboard](assets/powerbi/economic_dashboard.png)
+
+<img width="1282" height="723" alt="03_Country_Performance_Dashboard" src="https://github.com/user-attachments/assets/73f0815a-aa4b-438b-ae49-d19f1534d7fd" />
 
 ---
 
@@ -706,138 +691,6 @@ The solution enables users to:
 
 The overall workflow closely follows a real-world analytics project, beginning with API data extraction and ending with interactive dashboards for business users.
 
-
-# Project Structure
-
-```text
-Global-Trade-Supply-Chain-Intelligence/
-│
-├── data/
-│   ├── raw_data/
-│   └── processed_data/
-│
-├── notebooks/
-│   ├── extract_comtrade_data.ipynb
-│   ├── clean_comtrade_data.ipynb
-│   ├── extract_world_bank_data.ipynb
-│   └── clean_world_bank_data.ipynb
-│
-├── python/
-│   ├── config.py
-│   ├── load_data_to_mysql.py
-│   └── merge_datasets.py
-│
-├── sql/
-│   ├── Step_1_Database_Schema_Design.sql
-│   ├── Step_2_Data_Loading.sql
-│   ├── Step_3_Data_Validation.sql
-│   ├── Create_Master_Fact_Table.sql
-│   ├── Create_Views.sql
-│   └── Create_Indexes.sql
-│
-├── excel/
-│   ├── 01_Executive_Dashboard.xlsx
-│   └── 02_Scenario_Analysis.xlsx
-│
-├── powerbi/
-│   └── Global_Trade_Supply_Chain_Intelligence.pbix
-│
-├── documentation/
-│   ├── Business_Problem.md
-│   ├── Data_Model.md
-│   ├── ETL_Process.md
-│   └── Final_Report.pdf
-│
-├── assets/
-│   ├── excel/
-│   ├── powerbi/
-│   └── database/
-│
-├── requirements.txt
-└── README.md
-```
-
----
-
-# How to Run the Project
-
-To reproduce this project locally, follow the steps below.
-
-## Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/Global-Trade-Supply-Chain-Intelligence.git
-```
-
-Move into the project directory.
-
-```bash
-cd Global-Trade-Supply-Chain-Intelligence
-```
-
----
-
-## Step 2: Install Python Dependencies
-
-Install all required Python libraries using:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Step 3: Extract the Data
-
-Run the notebooks to download data from the APIs.
-
-Execution order:
-
-1. extract_comtrade_data.ipynb
-2. clean_comtrade_data.ipynb
-3. extract_world_bank_data.ipynb
-4. clean_world_bank_data.ipynb
-
-These notebooks will generate analytics-ready CSV files inside the `processed_data` folder.
-
----
-
-## Step 4: Create the MySQL Database
-
-Execute the SQL scripts in the following order.
-
-1. Step_1_Database_Schema_Design.sql
-2. Step_2_Data_Loading.sql
-3. Step_3_Data_Validation.sql
-4. Create_Master_Fact_Table.sql
-5. Create_Indexes.sql
-6. Create_Views.sql
-
-After completing these steps, the data warehouse and analytical views will be ready for reporting.
-
----
-
-## Step 5: Open the Excel Workbooks
-
-Open the following workbooks:
-
-- 01_Executive_Dashboard.xlsx
-- 02_Scenario_Analysis.xlsx
-
-Refresh the SQL connections to load the latest data from MySQL.
-
----
-
-## Step 6: Open the Power BI Report
-
-Open the Power BI report.
-
-```
-Global_Trade_Supply_Chain_Intelligence.pbix
-```
-
-Refresh the data source connection to load the latest information from the MySQL database.
-
 ---
 
 # Future Enhancements
@@ -873,27 +726,6 @@ Key areas of learning include:
 - Developing business-focused Excel reports and scenario analysis models.
 - Designing interactive Power BI dashboards for business users.
 - Translating business requirements into analytical solutions.
-
----
-
-# References
-
-The following public data sources were used in this project.
-
-### UN Comtrade
-
-- International merchandise trade statistics
-- HS Commodity Classification
-- Annual Trade Data
-
-### World Bank Open Data
-
-- GDP (Current US$)
-- Population
-- GDP Growth
-- Trade (% of GDP)
-
-These datasets are publicly available and were accessed through their respective APIs.
 
 ---
 
